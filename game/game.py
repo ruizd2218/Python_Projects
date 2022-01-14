@@ -6,6 +6,10 @@
     Purpose: The Tech Academy - Python Course Text Based Game.
     
 """
+from playsound import playsound
+
+playsound("assets\chime.mp3")
+print('Welcome to my program!\n')
 
 def start(nice=0,mean=0,name=""):
         # get users name
