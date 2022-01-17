@@ -13,17 +13,16 @@ with conn:
             col_name TEXT )")
     conn.commit()
 conn.close()
-
-#reading through list of names and picking out .txt files
-for item in fileList:
-    if item.endswith('.txt'): 
-        txtFile = item
         
 #here I am connecting to the database and inserting the values of fileList into col_name
 conn = sql.connect('db222')
 with conn:
     cur=conn.cursor()
-    cur.execute("INSERT INTO tbl_files(col_name) VALUES (?)", \
-    ("txtFile") )
+    for item in fileList:
+       if item.endswith('.txt'): 
+          cur.execute("INSERT INTO tbl_files(col_name) VALUES (?)", \
+                      (item,) )
+          print(item)
     conn.commit()
 conn.close()
+
