@@ -30,13 +30,13 @@ class ParentWindow(Frame):
         self.destPathlbl.grid(row=1, column=0, padx=(30, 0), pady=(30,0) )
 
         #buttons
-        self.btnSelect = Button(self.master, text="Select Source...", width=15, height=2, command=ops.chooseSource(self))
+        self.btnSelect = Button(self.master, text="Select Source...", width=15, height=2, command=lambda:ops.chooseSource(self))
         self.btnSelect.grid(row=2, column=1,padx=(0,165), pady=(30,0), sticky=NE, )
 
-        self.btnSelectD = Button(self.master, text="Select Destination...", width=15, height=2, command=ops.chooseDest(self))
+        self.btnSelectD = Button(self.master, text="Select Destination...", width=15, height=2, command=lambda: ops.chooseDest(self))
         self.btnSelectD.grid(row=2, column=1, padx=(0,30), pady=(30, 0), sticky=NE)
 
-        self.btnhold= Button(self.master, text="Transfer", width=15, height=3, command=ops.MoveFiles(self))
+        self.btnhold= Button(self.master, text="Transfer", width=15, height=3, command=lambda: ops.MoveFiles(self))
         self.btnhold.grid(row=3, column=1, padx=(0,30), pady=(30, 0))
        
 

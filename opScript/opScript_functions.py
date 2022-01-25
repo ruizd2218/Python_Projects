@@ -21,8 +21,9 @@ def MoveFiles(self):
     pastTime = dt.datetime.now() - dt.timedelta(hours=24)
     
     for i in fileList:
-        os.path.join(i)
-        mTime = os.path.getmtime(i)
-        mTimeR = dt.fromtimestamp(mTime)
-        if mTime > pastTime:
-            shutil.move(src, dest)
+        abspath = os.path.join(src,i).replace("\\", "/")
+        mTime = os.path.getmtime(abspath)
+        mTimeR = dt.datetime.fromtimestamp(mTime)
+
+        if mTimeR > pastTime:
+            shutil.move(abspath, dest)
